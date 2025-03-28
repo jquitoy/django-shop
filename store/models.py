@@ -1,15 +1,16 @@
 from django.db import models
 import datetime
+from django.utils.text import slugify
 
 # Categories of Products
 class Category(models.Model):
-	name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
 
-	def __str__(self):
-		return self.name
-	
-	class Meta:
-		verbose_name_plural = 'categories'
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = 'categories'
 
 class Customer(models.Model):
 	first_name = models.CharField(max_length=50)
@@ -48,4 +49,3 @@ class Order(models.Model):
 
 	def __str__(self):
 		return self.product
-	
